@@ -30,6 +30,7 @@ function parseNumber(value: string | null): number | undefined {
 
 export interface SearchFilters {
   search: string;
+  cityId?: string;
   district?: string;
   rating?: number;
   facility?: string;
@@ -39,6 +40,7 @@ export interface SearchFilters {
 }
 
 export type FilterPatch = Partial<{
+  cityId: string;
   search: string;
   district: string;
   rating: number;
@@ -56,6 +58,7 @@ export function useSearchFilters() {
   const filters = useMemo<SearchFilters>(() => {
     return {
       search: searchParams.get("q") ?? "",
+      cityId: searchParams.get("cityId") ?? undefined,
       district: searchParams.get("district") ?? undefined,
       rating: parseNumber(searchParams.get("rating")),
       facility: searchParams.get("facility") ?? undefined,
@@ -77,7 +80,8 @@ export function useSearchFilters() {
       };
 
       if ("search" in patch) apply("q", patch.search);
-      if ("district" in patch) apply("district", patch.district);
+      if ("cityId" in patch) apply("cityId", patch.cityId);
+    if ("district" in patch) apply("district", patch.district);
       if ("rating" in patch) apply("rating", patch.rating);
       if ("facility" in patch) apply("facility", patch.facility);
       if ("priceRange" in patch) apply("priceRange", patch.priceRange);
@@ -106,6 +110,7 @@ export function useSearchFilters() {
   const query = useMemo<CoffeeShopQuery>(
     () => ({
       search: filters.search || undefined,
+      cityId: filters.cityId,
       district: filters.district,
       rating: filters.rating,
       facility: filters.facility,
@@ -118,6 +123,7 @@ export function useSearchFilters() {
 
   const activeCount = useMemo(() => {
     let count = 0;
+    if (filters.cityId) count += 1;
     if (filters.district) count += 1;
     if (filters.rating) count += 1;
     if (filters.facility) count += 1;

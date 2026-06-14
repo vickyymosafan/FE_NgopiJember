@@ -8,6 +8,7 @@ import {
   RATING_OPTIONS,
 } from "@/features/search/constants/filters";
 import { DISTRICTS } from "@/constants/districts";
+import { useCities } from "@/features/city/queries/city-queries";
 import type {
   FilterPatch,
   SearchFilters,
@@ -67,6 +68,8 @@ export function FilterPanel({
   onChange,
   onReset,
 }: FilterPanelProps) {
+  const { data: cities } = useCities();
+
   return (
     <div className="space-y-5">
       <div className="flex items-center justify-between">
@@ -110,6 +113,25 @@ export function FilterPanel({
           </button>
           <span className="text-sm text-foreground">Hanya yang buka 24 jam</span>
         </label>
+      </FilterGroup>
+
+      <FilterGroup title="Kota">
+        <select
+          value={filters.cityId ?? ""}
+          onChange={(event) =>
+            onChange({
+              cityId: event.target.value ? event.target.value : undefined,
+            })
+          }
+          className="h-10 w-full rounded-xl border border-border bg-surface px-3 text-sm text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <option value="">Semua kota</option>
+          {(cities ?? []).map((city) => (
+            <option key={city.id} value={city.id}>
+              {city.name}
+            </option>
+          ))}
+        </select>
       </FilterGroup>
 
       <FilterGroup title="Distrik">

@@ -10,6 +10,9 @@ const NAV_LINKS = [
   { label: "Trending", href: "/trending" },
   { label: "Peta", href: "/map" },
   { label: "Distrik", href: "/districts" },
+  { label: "Kota", href: "/cities" },
+  { label: "Event", href: "/events" },
+  { label: "Komunitas", href: "/communities" },
 ];
 
 export function Navbar() {

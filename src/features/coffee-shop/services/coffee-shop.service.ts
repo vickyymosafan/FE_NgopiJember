@@ -43,6 +43,9 @@ function filterMock(items: CoffeeShop[], params: CoffeeShopQuery): CoffeeShop[] 
         return false;
       }
     }
+    if (params.cityId && shop.cityId !== params.cityId) {
+      return false;
+    }
     if (params.district && shop.district !== params.district) {
       return false;
     }

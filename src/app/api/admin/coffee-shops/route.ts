@@ -68,6 +68,7 @@ export async function POST(request: Request) {
       description: body.description ? String(body.description) : null,
       address: String(body.address ?? ""),
       district: String(body.district ?? ""),
+      cityId: body.cityId ? String(body.cityId) : "city-jember",
       latitude: body.latitude != null ? Number(body.latitude) : null,
       longitude: body.longitude != null ? Number(body.longitude) : null,
       phone: body.phone ? String(body.phone) : null,

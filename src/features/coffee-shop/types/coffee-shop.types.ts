@@ -11,6 +11,7 @@ export interface CoffeeShop {
   description: string | null;
   address: string;
   district: string;
+  cityId: string;
   latitude: number | null;
   longitude: number | null;
   phone: string | null;
@@ -41,6 +42,7 @@ export interface CoffeeShopQuery {
   limit?: number;
   search?: string;
   district?: string;
+  cityId?: string;
   rating?: number;
   facility?: string;
   openNow?: boolean;

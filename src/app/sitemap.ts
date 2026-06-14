@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { MOCK_COFFEE_SHOPS } from "@/features/coffee-shop/constants/mock-coffee-shops";
+import { MOCK_CITIES } from "@/features/city/constants/mock-cities";
 import { DISTRICTS } from "@/constants/districts";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ngopijember.id";
@@ -10,6 +11,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/search`, lastModified: new Date(), changeFrequency: "daily", priority: 0.9 },
     { url: `${SITE_URL}/map`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
     { url: `${SITE_URL}/trending`, lastModified: new Date(), changeFrequency: "daily", priority: 0.8 },
+    { url: `${SITE_URL}/cities`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.7 },
+    { url: `${SITE_URL}/events`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.6 },
+    { url: `${SITE_URL}/communities`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.6 },
     { url: `${SITE_URL}/login`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.3 },
     { url: `${SITE_URL}/register`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.3 },
   ];
@@ -30,5 +34,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...coffeeShopPages, ...districtPages];
+  const cityPages: MetadataRoute.Sitemap = MOCK_CITIES.map((city) => ({
+    url: `${SITE_URL}/cities/${city.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.6,
+  }));
+
+  return [...staticPages, ...coffeeShopPages, ...districtPages, ...cityPages];
 }

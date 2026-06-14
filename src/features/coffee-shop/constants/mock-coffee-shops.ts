@@ -281,6 +281,7 @@ export const MOCK_COFFEE_SHOPS: CoffeeShop[] = SEEDS.map((seed, index) => ({
   description: null,
   address: seed.address,
   district: DISTRICT,
+  cityId: "city-jember",
   latitude: COORDS[seed.slug]?.lat ?? null,
   longitude: COORDS[seed.slug]?.lng ?? null,
   phone: null,
