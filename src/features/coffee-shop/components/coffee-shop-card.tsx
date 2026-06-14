@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Star, MapPin, Coffee } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import type { CoffeeShop } from "@/features/coffee-shop/types/coffee-shop.types";
@@ -20,11 +21,12 @@ export function CoffeeShopCard({ shop }: CoffeeShopCardProps) {
         className="relative block aspect-[4/3] w-full overflow-hidden bg-muted"
       >
         {shop.imageUrl ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <Image
             src={shop.imageUrl}
-            alt={shop.name}
-            className="size-full object-cover transition-transform duration-300 group-hover:scale-105"
+            alt={`Foto ${shop.name} di ${shop.address}`}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
         ) : (
           <span className="flex size-full items-center justify-center text-muted-foreground">

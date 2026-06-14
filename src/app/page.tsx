@@ -7,21 +7,25 @@ import { TrendingSection } from "@/features/home/components/trending-section";
 import { DistrictSection } from "@/features/home/components/district-section";
 import { MapPreviewSection } from "@/features/home/components/map-preview-section";
 import { PersonalizedSuggestions } from "@/features/ai/components/personalized-suggestions";
+import { WebsiteJsonLd } from "@/features/seo/components/website-json-ld";
 
 export default function HomePage() {
   return (
-    <div className="flex min-h-dvh flex-col">
-      <Navbar />
-      <main className="flex-1 pb-20 md:pb-0">
-        <HeroSection />
-        <CategorySection />
-        <TrendingSection />
-        <DistrictSection />
-        <MapPreviewSection />
-        <PersonalizedSuggestions />
-      </main>
-      <SiteFooter />
-      <BottomNav />
-    </div>
+    <>
+      <WebsiteJsonLd />
+      <div className="flex min-h-dvh flex-col">
+        <Navbar />
+        <main id="main-content" className="flex-1 pb-20 md:pb-0">
+          <HeroSection />
+          <CategorySection />
+          <TrendingSection />
+          <DistrictSection />
+          <MapPreviewSection />
+          <PersonalizedSuggestions />
+        </main>
+        <SiteFooter />
+        <BottomNav />
+      </div>
+    </>
   );
 }

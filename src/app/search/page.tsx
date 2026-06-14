@@ -13,7 +13,7 @@ export default function SearchPage() {
   return (
     <div className="flex min-h-dvh flex-col">
       <Navbar />
-      <main className="flex-1 pb-20 md:pb-0">
+      <main id="main-content" className="flex-1 pb-20 md:pb-0">
         <Suspense fallback={null}>
           <SearchView />
         </Suspense>

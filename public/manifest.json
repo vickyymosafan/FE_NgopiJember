@@ -1,0 +1,17 @@
+{
+  "name": "NgopiJember",
+  "short_name": "NgopiJember",
+  "description": "Discover Every Coffee Shop in Jember.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#c08457",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    }
+  ]
+}

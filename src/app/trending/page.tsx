@@ -12,7 +12,7 @@ export default function TrendingPage() {
   return (
     <div className="flex min-h-dvh flex-col">
       <Navbar />
-      <main className="mx-auto w-full max-w-[1280px] flex-1 space-y-8 px-6 py-10 pb-24 md:pb-0">
+      <main id="main-content" className="mx-auto w-full max-w-[1280px] flex-1 space-y-8 px-6 py-10 pb-24 md:pb-0">
         <div className="space-y-1">
           <h1 className="text-2xl font-semibold tracking-tight text-foreground md:text-h3">
             Trending di NgopiJember
