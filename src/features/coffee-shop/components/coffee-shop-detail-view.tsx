@@ -11,7 +11,7 @@ import { DetailInfoCard } from "@/features/coffee-shop/components/detail-info-ca
 import { DetailMap } from "@/features/coffee-shop/components/detail-map";
 import { FacilityList } from "@/features/coffee-shop/components/facility-list";
 import { ReviewSection } from "@/features/review/components/review-section";
-import { NearbyCoffeeShops } from "@/features/coffee-shop/components/nearby-coffee-shops";
+import { RecommendedCoffeeShops } from "@/features/growth/components/recommended-coffee-shops";
 import { CoffeeShopDetailSkeleton } from "@/features/coffee-shop/components/detail-skeleton";
 
 interface CoffeeShopDetailViewProps {
@@ -125,7 +125,7 @@ export function CoffeeShopDetailView({ slug }: CoffeeShopDetailViewProps) {
         </aside>
       </div>
 
-      <NearbyCoffeeShops slug={slug} />
+      <RecommendedCoffeeShops current={shop} />
     </article>
   );
 }

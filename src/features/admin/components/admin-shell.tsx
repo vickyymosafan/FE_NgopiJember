@@ -10,6 +10,7 @@ const ADMIN_LINKS = [
   { label: "Coffee Shops", href: "/admin/coffee-shops" },
   { label: "Tambah", href: "/admin/coffee-shops/new" },
   { label: "Klaim", href: "/admin/claims" },
+  { label: "Search Analytics", href: "/admin/analytics/searches" },
 ];
 
 interface AdminShellProps {

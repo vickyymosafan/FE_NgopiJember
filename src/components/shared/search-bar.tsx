@@ -6,6 +6,7 @@ import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useLogSearch } from "@/features/growth/queries/growth-queries";
 
 interface SearchBarProps {
   placeholder?: string;
@@ -20,11 +21,17 @@ export function SearchBar({
 }: SearchBarProps) {
   const router = useRouter();
   const [value, setValue] = useState(defaultValue);
+  const logMutation = useLogSearch();
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const term = value.trim();
-    router.push(term ? `/search?q=${encodeURIComponent(term)}` : "/search");
+    if (term) {
+      logMutation.mutate(term);
+      router.push(`/search?q=${encodeURIComponent(term)}`);
+    } else {
+      router.push("/search");
+    }
   }
 
   return (

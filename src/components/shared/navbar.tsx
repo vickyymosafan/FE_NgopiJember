@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
   { label: "Jelajah", href: "/search" },
+  { label: "Trending", href: "/trending" },
   { label: "Peta", href: "/map" },
   { label: "Distrik", href: "/districts" },
 ];
