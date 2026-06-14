@@ -1,4 +1,5 @@
 "use client";
+import { ClaimButton } from "@/features/claim/components/claim-button";
 
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -72,6 +73,7 @@ export function CoffeeShopDetailView({ slug }: CoffeeShopDetailViewProps) {
                 </span>
               ) : null}
             </div>
+            <ClaimButton coffeeShopId={shop.id} isVerified={shop.verified} />
             <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
               <span className="flex items-center gap-1 font-medium text-foreground">
                 <Star className="size-4 fill-warning text-warning" aria-hidden="true" />

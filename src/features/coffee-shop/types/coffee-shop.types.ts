@@ -24,6 +24,8 @@ export interface CoffeeShop {
   rating: number;
   reviewCount: number;
   verified: boolean;
+  ownerId: string | null;
+  views: number;
   imageUrl: string | null;
   facilities: Facility[];
 }

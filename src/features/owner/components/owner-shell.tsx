@@ -1,35 +1,39 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { ShieldCheck } from "lucide-react";
+import { Store } from "lucide-react";
 import { Navbar } from "@/components/shared/navbar";
 import { BottomNav } from "@/components/shared/bottom-nav";
-import { AdminGuard } from "@/features/admin/components/admin-guard";
+import { OwnerGuard } from "@/features/owner/components/owner-guard";
 
-const ADMIN_LINKS = [
-  { label: "Dashboard", href: "/admin" },
-  { label: "Coffee Shops", href: "/admin/coffee-shops" },
-  { label: "Tambah", href: "/admin/coffee-shops/new" },
-  { label: "Klaim", href: "/admin/claims" },
+const OWNER_LINKS = [
+  { label: "Dashboard", href: "/owner" },
+  { label: "Coffee Shop", href: "/owner/coffee-shops" },
+  { label: "Promosi", href: "/owner/promotions" },
 ];
 
-interface AdminShellProps {
+interface OwnerShellProps {
   title: string;
   description?: string;
   action?: ReactNode;
   children: ReactNode;
 }
 
-export function AdminShell({ title, description, action, children }: AdminShellProps) {
+export function OwnerShell({
+  title,
+  description,
+  action,
+  children,
+}: OwnerShellProps) {
   return (
     <div className="flex min-h-dvh flex-col">
       <Navbar />
       <div className="mx-auto flex w-full max-w-[1280px] flex-1 gap-8 px-6 py-8">
         <aside className="hidden w-56 shrink-0 space-y-1 md:block">
           <div className="mb-4 flex items-center gap-2 rounded-xl bg-accent/10 px-3 py-2 text-sm font-medium text-accent">
-            <ShieldCheck className="size-4" aria-hidden="true" />
-            Admin
+            <Store className="size-4" aria-hidden="true" />
+            Owner
           </div>
-          {ADMIN_LINKS.map((link) => (
+          {OWNER_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -47,12 +51,14 @@ export function AdminShell({ title, description, action, children }: AdminShellP
                 {title}
               </h1>
               {description ? (
-                <p className="mt-1 text-sm text-muted-foreground">{description}</p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  {description}
+                </p>
               ) : null}
             </div>
             {action}
           </div>
-          <AdminGuard>{children}</AdminGuard>
+          <OwnerGuard>{children}</OwnerGuard>
         </main>
       </div>
       <BottomNav />

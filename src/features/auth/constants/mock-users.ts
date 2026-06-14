@@ -8,6 +8,13 @@ export const MOCK_USERS: AuthUser[] = [
     avatarUrl: null,
     role: "ADMIN",
   },
+  {
+    id: "mock-user-02",
+    name: "Owner Perasa",
+    email: "owner@ngopijember.id",
+    avatarUrl: null,
+    role: "OWNER",
+  },
 ];
 
 export const MOCK_PASSWORD = "Password123";

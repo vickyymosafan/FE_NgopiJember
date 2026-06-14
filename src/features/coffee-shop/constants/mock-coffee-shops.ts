@@ -294,6 +294,16 @@ export const MOCK_COFFEE_SHOPS: CoffeeShop[] = SEEDS.map((seed, index) => ({
   rating: seed.rating,
   reviewCount: seed.reviewCount,
   verified: true,
+  ownerId: null,
+  views: 0,
   imageUrl: null,
   facilities: getFacilities(seed.facilities),
 }));
+
+
+const perasa = MOCK_COFFEE_SHOPS.find((item) => item.slug === "perasa-coffee-eatery");
+if (perasa) {
+  perasa.ownerId = "mock-user-02";
+  perasa.verified = true;
+  perasa.views = 1200;
+}

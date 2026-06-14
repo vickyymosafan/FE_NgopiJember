@@ -84,6 +84,8 @@ export async function POST(request: Request) {
       verified: true,
       imageUrl: null,
       facilities: [],
+      ownerId: null,
+      views: 0,
     };
     MOCK_COFFEE_SHOPS.unshift(newShop);
     return NextResponse.json({ success: true, data: newShop }, { status: 201 });
