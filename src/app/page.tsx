@@ -6,6 +6,7 @@ import { CategorySection } from "@/features/home/components/category-section";
 import { TrendingSection } from "@/features/home/components/trending-section";
 import { DistrictSection } from "@/features/home/components/district-section";
 import { MapPreviewSection } from "@/features/home/components/map-preview-section";
+import { PersonalizedSuggestions } from "@/features/ai/components/personalized-suggestions";
 
 export default function HomePage() {
   return (
@@ -17,6 +18,7 @@ export default function HomePage() {
         <TrendingSection />
         <DistrictSection />
         <MapPreviewSection />
+        <PersonalizedSuggestions />
       </main>
       <SiteFooter />
       <BottomNav />

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { QueryProvider } from "@/providers/query-provider";
+import { AiChatBubble } from "@/features/ai/components/ai-chat-bubble";
 import { AuthProvider } from "@/providers/auth-provider";
 
 const geistSans = Geist({
@@ -34,7 +35,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
-        <QueryProvider><AuthProvider>{children}</AuthProvider></QueryProvider>
+        <QueryProvider><AuthProvider>{children}<AiChatBubble /></AuthProvider></QueryProvider>
       </body>
     </html>
   );
