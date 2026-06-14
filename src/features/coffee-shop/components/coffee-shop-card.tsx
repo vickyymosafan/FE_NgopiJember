@@ -1,18 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { Star, MapPin, Heart, Coffee } from "lucide-react";
+import { Star, MapPin, Coffee } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
 import type { CoffeeShop } from "@/features/coffee-shop/types/coffee-shop.types";
+import { FavoriteButton } from "@/features/favorite/components/favorite-button";
 
 interface CoffeeShopCardProps {
   shop: CoffeeShop;
 }
 
 export function CoffeeShopCard({ shop }: CoffeeShopCardProps) {
-  const [favorited, setFavorited] = useState(false);
   const openLabel = shop.isOpen24Hours ? "Buka 24 Jam" : "Buka";
 
   return (
@@ -38,25 +36,9 @@ export function CoffeeShopCard({ shop }: CoffeeShopCardProps) {
         </span>
       </Link>
 
-      <button
-        type="button"
-        onClick={() => setFavorited((prev) => !prev)}
-        aria-pressed={favorited}
-        aria-label={
-          favorited
-            ? `Hapus ${shop.name} dari favorit`
-            : `Simpan ${shop.name} ke favorit`
-        }
-        className="absolute right-3 top-3 flex size-9 items-center justify-center rounded-full bg-background/80 text-foreground backdrop-blur transition-colors hover:bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-      >
-        <Heart
-          className={cn(
-            "size-4",
-            favorited ? "fill-danger text-danger" : "text-muted-foreground",
-          )}
-          aria-hidden="true"
-        />
-      </button>
+      <div className="absolute right-3 top-3 z-10">
+        <FavoriteButton coffeeShopId={shop.id} coffeeShopName={shop.name} />
+      </div>
 
       <div className="flex flex-1 flex-col gap-3 p-4">
         <div className="flex items-start justify-between gap-2">

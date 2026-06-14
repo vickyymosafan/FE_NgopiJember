@@ -6,6 +6,7 @@ import {
   formatOpeningHours,
   isOpenNow,
 } from "@/features/coffee-shop/lib/opening-hours";
+import { FavoriteButton } from "@/features/favorite/components/favorite-button";
 
 interface DetailInfoCardProps {
   shop: CoffeeShopDetail;
@@ -16,6 +17,11 @@ export function DetailInfoCard({ shop }: DetailInfoCardProps) {
 
   return (
     <div className="space-y-5 rounded-card border border-border bg-surface p-5">
+      <div className="flex items-center justify-between border-b border-border pb-4">
+        <p className="text-sm font-medium text-muted-foreground">Tersimpan?</p>
+        <FavoriteButton coffeeShopId={shop.id} coffeeShopName={shop.name} />
+      </div>
+
       <div className="flex items-center gap-2">
         <span
           className={cn(

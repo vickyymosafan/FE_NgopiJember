@@ -9,6 +9,7 @@ import { DetailGallery } from "@/features/coffee-shop/components/detail-gallery"
 import { DetailInfoCard } from "@/features/coffee-shop/components/detail-info-card";
 import { DetailMap } from "@/features/coffee-shop/components/detail-map";
 import { FacilityList } from "@/features/coffee-shop/components/facility-list";
+import { ReviewSection } from "@/features/review/components/review-section";
 import { NearbyCoffeeShops } from "@/features/coffee-shop/components/nearby-coffee-shops";
 import { CoffeeShopDetailSkeleton } from "@/features/coffee-shop/components/detail-skeleton";
 
@@ -103,6 +104,8 @@ export function CoffeeShopDetailView({ slug }: CoffeeShopDetailViewProps) {
             </h2>
             <FacilityList facilities={shop.facilities} />
           </section>
+
+          <ReviewSection coffeeShopId={shop.id} coffeeShopName={shop.name} />
 
           <section className="space-y-3 lg:hidden">
             <h2 className="text-xl font-semibold tracking-tight text-foreground md:text-h4">
