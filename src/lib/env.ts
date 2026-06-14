@@ -1,0 +1,4 @@
+export const env = {
+  apiUrl: process.env.NEXT_PUBLIC_API_URL ?? "/api/v1",
+  useMock: process.env.NEXT_PUBLIC_USE_MOCK !== "false",
+} as const;
